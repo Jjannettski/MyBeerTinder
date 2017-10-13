@@ -1,4 +1,4 @@
-//firebase 
+//firebasee 
 
 var config = {
     apiKey: "AIzaSyA5BY1IGzgMdKpILZ4bid8QjvAlIYYh9Zw",
@@ -133,7 +133,7 @@ var longitude;
 
 
 //For loop creating all the carousel items for each beer (object) we have
-for (var i = 1; i < 11; i++) {
+for (var i = 1; i < 21; i++) {
     var out = $("<div id=aaaa class=carousel-item>")
         .append("<img class=d-block img-fluid src=" + beerObject[i].imageSource + ">")
         .append()
