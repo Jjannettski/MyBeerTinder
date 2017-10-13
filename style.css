@@ -320,7 +320,9 @@ img{
 }
 
 /*CAROUSEL MEDIA QUERIES*/
-@media screen and (max-width: 360px), screen and (max-height: 640px){
+
+/*GALAXY S-5*/
+@media screen and (max-width: 360px){
 	img.d-block, .img-fluid{
 		width:50%;
 		height:300px;
@@ -332,12 +334,13 @@ img{
 	img{
 		width:100%;
 	}
-
-}
+		#carouselExampleIndicators{
+		margin-left: 4.5%;
+	}
 
 }
 /*IPHONE 6 PLUS*/
-@media screen and (max-width: 414px), screen and (max-height: 736px){
+@media screen and (max-width: 415px){
 	img.d-block, .img-fluid{
 		width:50%;
 		height:325px;
@@ -355,4 +358,7 @@ img{
 	img{
 		width:100%;
 	}
+/*		#carouselExampleIndicators{
+		margin-left: 0.5%;
+	}*/
 }
