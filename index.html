@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BeerTinder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-database.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <!-- This is the nav bar html-->
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="name-logo">
+            <a class="navbar-brand" href="#"><span id="nav-color">BeerTinder</span></a>
+            <img src="https://i.pinimg.com/736x/29/a0/4f/29a04fc9df67c3d0fa3a72826354cbbd--cool-stickers-beer-logos.jpg" id="beer-logo">
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><span id="nav-color">Home</span><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <!-- How does this work? Modal -->
+                    <!-- Trigger modal -->
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal2" href="#"><span id="nav-color">How does this work?</span></a>
+                    <!-- How does this work? Modal -->
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">How to use BeerTinder!</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <!--Custom Modal Content Goes Here-->
+                                <div class="modal-body">
+                                    <h4 class="info-text">It's highly recommended that you "create a profile" so that all the features work properly!<h4>
+<p class="info-text">The objective of BeerTinder is to find the perfect beer for the perfect you!<p>
+<h4 class="info-text">Features:<h4>
+<ol>
+<li class="info-text">Once the screen is fully loaded, you will see a selection of randomized beers.</li>
+<li class="info-text">It's highly recommended that you "Create a Profile" so that you have access to all the features and storage of your activities.</li>
+<li class="info-text">For each beer selection you have the option to "Like" or "Dislike".</li>
+<li class="info-text">"Liking" a beer adds that beer to your history of liked beers.</li>
+<li class="info-text">Each beer will have an info option that will display relevant info about the beer that is currently being shown.</li>
+<li class="info-text">By clicking "where can i meet you" you will see locations on google maps of where you can get the beer.</li>
+</ol>
+      </div>
+      <!-- Custom Modal Content Goes Above ^^^^^^ -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+      </li>
+      <li class="nav-item">
+<!-- Trigger modal -->
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModal3" href="#"><span id="nav-color">Likes</span></a>
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Liked Beers</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Custom Modal Content Goes Here-->
+      <div id="liked-beers" class="modal-body">
+        
+      </div>
+      <!-- Custom Modal Content Goes Above ^^^^^^ -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+      </li>
+      <li class="nav-item">
+        <!-- Trigger modal -->
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="#"><span id="nav-color">Profile</span></a>
+<!-- Sign in Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       <main>
+            <div>
+                <!-- Container for the demo -->
+                <div>
+                    <div>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Custom Modal Content Goes Here-->
+      <div class="modal-body">
+       <h5>Enter an email and password below and either sign in to an existing account or sign up</h5><br>
+                        <input style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email" /> &nbsp;&nbsp;&nbsp;
+                        <input style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password" />
+                        <br/>
+                        <br/>             
+                        <button id="quickstart-sign-in" name="signin" class="btn btn-outline-success my-2 my-sm-0">Sign-In</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button id="quickstart-sign-up" name="signup" class="btn btn-outline-success my-2 my-sm-0">Sign-Up</button>
+                        &nbsp;&nbsp;&nbsp;<br><br>
+                        <button class="btn btn-outline-success my-2 my-sm-0" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button><br>
+                        &nbsp;&nbsp;&nbsp;<br>
+                        <button class="btn btn-outline-success my-2 my-sm-0" id="quickstart-password-reset" name="verify-email">Send Password Reset Email</button>
+      </div>
+      <!-- Custom Modal Content Goes Above ^^^^^^ -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+      
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+<!-- This is the HTML for the carousel-->
+<div id="carouselExampleIndicators" class="carousel slide">
+  <ol class="carousel-indicators" id="carousel-slide-buttons">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <img class="d-block img-fluid" src="https://i.pinimg.com/originals/d3/a3/76/d3a376bf640ec69367d87050596dafc4.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+    <h3 class="beer-name">Beer Name Goes Here</h3>
+  </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" id="carousel-prev-arrow">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next" id="carousel-next-arrow">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<div class="carousel-bottom-buttons">
+<button type="button" id="btn-bottom" class="btn btn-primary like-button">Like</button>
+<button type="button" id="btn-bottom" class="btn btn-primary info-button">Info</button>
+</div>
+ <!-- beer data will get dumped -->
+    <div class="jumbotron">
+        <div class="container text-center">
+            <div id="beers-view"></div>
+        </div>
+    </div>
+<!-- This button wil generate the google map API-->
+<button type="button" id="btn-bottom-bitch" class="btn btn-primary">Find me Babe</button>
+<!--Maps api should display here-->
+<div id="map"></div>
+<!--This is the footer HTML-->
+<footer class="last">
+  <ul>
+<div class="footer-socials mb-5 flex-center">
+                    <!--Facebook-->
+                    <a class="icons-sm fb-ic"><i id="fa-icons" class="fa fa-facebook fa-lg white-text mr-md-4"> </i></a>
+                    <!--Twitter-->
+                    <a class="icons-sm tw-ic"><i id="fa-icons" class="fa fa-twitter fa-lg white-text mr-md-4"> </i></a>
+                    <!--Google +-->
+                    <a class="icons-sm gplus-ic"><i id="fa-icons" class="fa fa-google-plus fa-lg white-text mr-md-4"> </i></a>
+                    <!--Linkedin-->
+                    <a class="icons-sm li-ic"><i id="fa-icons" class="fa fa-linkedin fa-lg white-text mr-md-4"> </i></a>
+                    <!--Instagram-->
+                    <a class="icons-sm ins-ic"><i id="fa-icons" class="fa fa-instagram fa-lg white-text mr-md-4"> </i></a>
+                    <!--Pinterest-->
+                    <a class="icons-sm pin-ic"><i id="fa-icons" class="fa fa-pinterest fa-lg white-text"> </i></a>
+                </div>
+  </ul>
+<div class="container">
+        <!-- Footer links -->
+        <div class="row text-center text-md-left mt-3 pb-3">
+            <!--First column-->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="title mb-4 font-bold">A Quote About Beer</h6>
+                <p class="footer-content">"Whoever drinks beer, he is quick to sleep; whoever sleeps long, does not sin; whoever does not sin, enters Heaven! Thus, let us drink beer!" <br>- Martin Luther (not king, the other one)</p>
+            </div>
+            <!--/.First column-->
+            <hr class="w-100 clearfix d-md-none">
+            <!--Second column-->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="title mb-4 font-bold">Useful Links</h6>
+                <p><a class="footer-links" href="https://www.beermenus.com/" target="_blank">Where To Get Certain Beers</a></p>
+                <p><a class="footer-links" href="https://newjerseycraftbeer.com/new-jersey-breweries/" target="_blank">New Jersey Breweries</a></p>
+                <p><a class="footer-links" href="https://www.thrillist.com/drink/new-york/best-breweries-in-new-york-state-according-to-beer-experts" target="_blank">Best Breweries in New York State</a></p>
+            </div>
+            <!--/.Second column-->
+            <hr class="w-100 clearfix d-md-none">
+            <!--Third column-->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="title mb-4 font-bold">Nightlife</h6>
+                <p><a class="footer-links" href="https://www.yelp.com/search?find_desc=Beer+Pong+Bars&find_loc=New+York%2C+NY" target="_blank">Beer Pong Bars</a></p>
+                <p><a class="footer-links" href="https://www.thrillist.com/drink/new-york/50-nyc-bars-you-need-to-drink-in-before-you-die" target="_blank">Top 50 Bars In New York City</a></p>
+                <p><a class="footer-links" href="http://gothamist.com/2016/01/14/best_hook-up_bars_nyc.php" target="_blank">Top Hookup Bars in New York City</a></p>
+                <p><a class="footer-links" href="https://www.timeout.com/newyork/bars/best-sports-bars" target="_blank">Sports Bars</a></p>
+            </div>
+            <!--/.Third column-->
+            <hr class="w-100 clearfix d-md-none">
+            <!--Fourth column-->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="title mb-4 font-bold">Contact</h6>
+                <p><i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+                <p><i class="fa fa-envelope mr-3"></i> BeerTinder@example.com</p>
+                <p><i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+                <p><i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+            </div>
+            <!--/.Fourth column-->
+        </div>
+</footer>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="beer.js">
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX_6n_Ha1C-wWBt10IeWqb2W7dwndFLKM&callback=initMap"></script>
+</body>
+</html>
