@@ -85,6 +85,10 @@ img.d-block, .img-fluid{
 #carousel-next-arrow{
 	width:4%;
 }
+.carousel-indicators li{
+	max-width: 25px;
+	width:25px;
+}
 
 #carousel-prev-arrow{
 	width:4%;
