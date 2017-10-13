@@ -305,9 +305,11 @@ background-color: #191919;
 	.footer-socials, .mb-5, .flex-center{
 		margin-left: 12%;
 	}
+	
 }
 
 }
+/*IPHONE 6 PLUS*/
 @media screen and (max-width: 414px), screen and (max-height: 736px){
 	img.d-block, .img-fluid{
 		width:50%;
@@ -316,5 +318,11 @@ background-color: #191919;
 	}
 	.footer-socials, .mb-5, .flex-center{
 		margin-left: 20%;
+	}
+	.carousel-bottom-buttons{
+		margin-left: 34.5%;
+	}
+	#btn-bottom-bitch{
+		margin-left: 34.5%;
 	}
 }
