@@ -160,7 +160,9 @@ p{
 	color:#ff9900;
 }
 .beer-name{
-	color:red;
+	color:#ff9900;
+	font-size: 2.8rem;
+	text-shadow: 2px 2px #000000;
 }
 
 
@@ -258,6 +260,11 @@ background-color: #191919;
 		height:300px;
 		width:300px;
 	}
+	.beer-name{
+	font-size: 1.4rem;
+	width:40px;
+	margin-left: 40%;
+}
 
 }
 /*IPHONE 6 PLUS*/
@@ -271,5 +278,10 @@ background-color: #191919;
 		height:300px;
 		width:300px;
 	}
+		.beer-name{
+	font-size: 1.4rem;
+	width:40px;
+	margin-left: 38.5%;
+}
 
 }
