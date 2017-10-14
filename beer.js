@@ -1,4 +1,4 @@
-//firebasee 
+//firebase 
 
 var config = {
     apiKey: "AIzaSyA5BY1IGzgMdKpILZ4bid8QjvAlIYYh9Zw",
@@ -217,6 +217,7 @@ $(".btn.btn-primary.like-button").on("click", function() {
     $("#liked-beer-display").append(likedModal);
     //adding the current beer liked to the beersLiked array
     beersLiked.push(beerLiked);
+    console.log(beersLiked);
     // Add 1 to beerCounter everytime the user pushes like
     beerCounter++;
 
@@ -225,7 +226,6 @@ $(".btn.btn-primary.like-button").on("click", function() {
     database.ref().set({
         NumberOfBeers: beerCounter,
         nameOfBeers: beersLiked
-
     });
 
 });
@@ -445,6 +445,8 @@ function toggleSignIn() {
         // [END authwithemail]
     }
     document.getElementById('quickstart-sign-in').disabled = true;
+    $("#liked-beer-display").append(beersLiked);
+
 }
 /**
  * Handles the sign up button press.
@@ -576,4 +578,5 @@ function initApp() {
 }
 window.onload = function() {
     initApp();
+    // $("#liked-beer-display").append(beersLiked);
 };
